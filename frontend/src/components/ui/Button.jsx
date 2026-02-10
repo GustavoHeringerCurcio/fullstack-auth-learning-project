@@ -1,0 +1,35 @@
+import React from "react";
+
+const variants = {
+  default:
+    "text-white bg-black border border-transparent hover:bg-gray-900 focus:ring-4 focus:ring-gray-700",
+  secondary:
+    "text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary",
+  tertiary:
+    "text-body bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary-soft",
+  success:
+    "text-white bg-success border border-transparent hover:bg-success-strong focus:ring-4 focus:ring-success-medium",
+  danger:
+    "text-white bg-danger border border-transparent hover:bg-danger-strong focus:ring-4 focus:ring-danger-medium",
+  warning:
+    "text-white bg-warning border border-transparent hover:bg-warning-strong focus:ring-4 focus:ring-warning-medium",
+  dark:
+    "text-white bg-dark border border-transparent hover:bg-dark-strong focus:ring-4 focus:ring-neutral-tertiary",
+  ghost:
+    "text-heading bg-transparent border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary",
+};
+
+export default function Button({ variant = "default", className = "", children, ...props }) {
+  return (
+    <button
+      type="button"
+      className={`box-border shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none ${variants[variant]} ${className}
+      
+      [@media(max-height:769px)]:h-10
+      `}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
