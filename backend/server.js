@@ -9,6 +9,8 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const PORT = process.env.PORT || 3000;
+
 //fake dataBase, NOTE: need to use MongoDB or SQL
 const USERS = [
   { name: "admin", email: "admin", password: "admin" },
@@ -27,7 +29,6 @@ app.get("/health", (req, res) => {
 /* Register API (NOTE: just pushing the data to Array USERS, for now) */
 app.post("/api/register", (req, res) => {
   const { name, email, password, confirmPassword } = req.body
-  const { acceptedTerms } = req.body;
   console.log("REGISTER BODY:", req.body);
 
   
@@ -140,9 +141,7 @@ app.post("/api/chat", async (req, res) => {
 console.log("OPENAI_API_KEY exists?", Boolean(process.env.OPENAI_API_KEY));
 
 
-
-
-app.listen(3000, () => {
-  console.log("Backend running on http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`Backend running on ${PORT}`);
   
 });
