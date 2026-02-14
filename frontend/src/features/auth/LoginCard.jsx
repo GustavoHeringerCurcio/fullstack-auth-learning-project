@@ -18,6 +18,9 @@ import GoogleButton from "../../components/ui/GoogleButton"
 import Divider from "../../components/ui/Divider"
 import RememberForgot from "../../components/ui/RememberForgot"
 
+//Services.AuthAPI
+import { loginUser } from "@/services/auth.api";
+
 export default function LoginCard() {
   const [email, setEmail] = useState("")
   const [password, setPassword] =  useState("")
@@ -37,39 +40,21 @@ export default function LoginCard() {
     setMsg("")
     setLoading(true)
 
-    try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      })
+      try {
+    const data = await loginUser(email, password);
 
-      const data = await res.json().catch(() => ({}))
+    setMsg(data.message || "Login successful");
+    console.log("Login response:", data);
 
-      if(!res.ok) {
-        setMsg(data.message || "Login failed")
-        return;
-      }
-
-      setMsg(data.message || "Login successful")
-      console.log("Login response:", data)
-
-      //later i can redirect, but its just to confirm
-      //after redirect to /home
-
-      navigate("/dashboard")
-
-      //to save the key: "auth" value: "true" / then i can read the values
-      localStorage.setItem("auth", "true")
-
-    } 
-    catch(err) {
-      setMsg(" Could not connect to the server")
-    } 
+    localStorage.setItem("auth", "true");
+    navigate("/dashboard");
     
-    finally {
-      setLoading(false)
-    }
+  } catch (err) {
+    setMsg(err.message || "Could not connect to the server");
+
+  } finally {
+    setLoading(false);
+  }
 
   }
 

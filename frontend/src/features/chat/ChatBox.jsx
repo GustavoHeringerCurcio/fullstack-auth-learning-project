@@ -8,7 +8,7 @@ import Maskot from "@/assets/maskot/Maskot-base.png"
 export default function ChatBox() {
     const [text, setText] = useState("")
     const[messages, setMessages] = useState([
-        { role: "assistant", content: "Hi! I’m Sophos. How can I help?" },
+        { role: "assistant", content: "“Hi! I’m Sophos, a small chatbot built just to practice the OpenAI API and learn how things work. How can I help you?”" },
     ])
 
     const [loading, setLoading] = useState(false)
