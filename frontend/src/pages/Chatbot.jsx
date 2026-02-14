@@ -10,7 +10,7 @@ import Navbar from "../components/layout/Navbar"
 
 //Features Components
 import ChatBox from "../features/chat/ChatBox"
-
+import Login from "./Login"
 
 export default function Dashboard(){
     const navigate = useNavigate()

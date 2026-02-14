@@ -47,7 +47,7 @@ export default function LoginCard() {
     console.log("Login response:", data);
 
     localStorage.setItem("auth", "true");
-    navigate("/dashboard");
+    navigate("/chatbot");
     
   } catch (err) {
     setMsg(err.message || "Could not connect to the server");
@@ -90,7 +90,7 @@ export default function LoginCard() {
             <div>
               <p className="font-bold" >Email</p>
               <Input 
-              placeholder="Enter your Email"
+              placeholder="if not registered try: admin"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               ></Input>
@@ -100,7 +100,7 @@ export default function LoginCard() {
               <p className="font-bold">Password</p>
               <Input 
               type="password" 
-              placeholder="Enter your password"
+              placeholder="if not registered try: admin"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               
