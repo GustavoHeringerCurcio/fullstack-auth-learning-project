@@ -142,6 +142,6 @@ console.log("OPENAI_API_KEY exists?", Boolean(process.env.OPENAI_API_KEY));
 
 
 app.listen(PORT, () => {
-  console.log(`Backend running on ${PORT}`);
+  console.log(`Backend running on http://localhost:${PORT}`);
   
 });
