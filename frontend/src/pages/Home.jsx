@@ -1,6 +1,7 @@
 //Components
 import Navbar from "@/components/layout/Navbar"
 import LoginCard from "@/features/auth/LoginCard"
+import MetaHead from "@/components/layout/MetaHead"
 
 //ui components
 import Button from "@/components/ui/Button"
@@ -15,6 +16,7 @@ function Home() {
 
   return (
     <>
+    <MetaHead pageKey="home" />
     <Navbar></Navbar>
     <div className="flex flex-col justify-center items-center mt-5">
       

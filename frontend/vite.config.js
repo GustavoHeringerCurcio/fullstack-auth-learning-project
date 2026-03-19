@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), flowbiteReact()],
   resolve: { alias: { "@": path.resolve(__dirname, "src") } },
   server: {
+    allowedHosts: true,
     proxy: {
       "/api": "http://localhost:3000",
     },

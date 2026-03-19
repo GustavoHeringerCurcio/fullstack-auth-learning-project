@@ -7,6 +7,7 @@ import LoginCard from "../features/auth/LoginCard"
 
 //Layout Components
 import Navbar from "../components/layout/Navbar"
+import MetaHead from "../components/layout/MetaHead"
 
 //Features Components
 import ChatBox from "../features/chat/ChatBox"
@@ -29,6 +30,7 @@ export default function Dashboard(){
 
     return(
         <div>
+            <MetaHead pageKey="chatbot" />
             <Navbar></Navbar>
             <ChatBox></ChatBox>
             
